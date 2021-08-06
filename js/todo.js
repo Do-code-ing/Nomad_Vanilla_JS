@@ -1,3 +1,5 @@
+'use strict';
+
 const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
@@ -15,7 +17,6 @@ function deleteToDo(event) {
     li.remove();
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
     saveToDos();
-    console.log(li);
 }
 
 function paintToDo(newTodoObj) {
@@ -24,10 +25,10 @@ function paintToDo(newTodoObj) {
     const span = document.createElement("span");
     span.innerText = newTodoObj.text;
     const button = document.createElement("button");
-    button.innerText = "❌";
+    button.innerText = "🗑";
     button.addEventListener("click", deleteToDo)
-    li.appendChild(span);
     li.appendChild(button);
+    li.appendChild(span);
     toDoList.appendChild(li);
 }
 
