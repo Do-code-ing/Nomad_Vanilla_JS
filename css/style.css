@@ -163,6 +163,7 @@ input {
 }
 
 #weathericon {
+    z-index: 10;
     float: right;
     width: 70px;
     height: 70px;
