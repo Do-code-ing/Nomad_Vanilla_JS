@@ -6,6 +6,13 @@ const images = [
     "3.jpg",
 ];
 
+'use strict';
+
+const weatherInfo = document.querySelector("#weatherinfo");
+const weatherIcon = weatherInfo.querySelector("#weathericon");
+const weather = weatherInfo.querySelector("p:nth-child(2)");
+const city = weatherInfo.querySelector("p:last-child");
+const API_KEY = "527bc277d5dc38c64055b1f238357ecf";
 const chosenImage = images[Math.floor(Math.random() * images.length)];
 const bgImage = document.querySelector("#background-img");
 const firstPage = document.querySelector(".first-page");
@@ -60,3 +67,27 @@ if (savedUsername === null) {
     disappear();
     paintGreetings(savedUsername);
 }
+
+// weather
+function onGeoOk(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            weather.innerText = `${Math.round(data.main.temp)}℃ ${data.weather[0].description}`;
+            city.innerText = data.name;
+        });
+}
+
+function onGeoError() {
+    weatherIcon.src = "img/no_weather.png";
+    weather.innerText = "Weather"
+    city.innerText = "Unknown"
+    alert("Can't find you. No weather for you.");
+
+}
+
+setInterval(navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError), 60000);
