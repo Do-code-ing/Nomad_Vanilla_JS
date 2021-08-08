@@ -6,17 +6,17 @@ const images = [
     "3.jpg",
 ];
 
-'use strict';
-
 const weatherInfo = document.querySelector("#weatherinfo");
 const weatherIcon = weatherInfo.querySelector("#weathericon");
 const weather = weatherInfo.querySelector("p:nth-child(2)");
 const city = weatherInfo.querySelector("p:last-child");
 const API_KEY = "527bc277d5dc38c64055b1f238357ecf";
 const chosenImage = images[Math.floor(Math.random() * images.length)];
+
 const bgImage = document.querySelector("#background-img");
 const firstPage = document.querySelector(".first-page");
 const secondPage = document.querySelector(".second-page");
+
 const clockUserWeatherInfo = document.querySelector("#info");
 const loginForm = document.querySelector("#login-form")
 const loginInput = document.querySelector("#login-form input");
