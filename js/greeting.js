@@ -20,10 +20,11 @@ function clockInsertToclockUserWeatherInfo() {
 function disappear() {
     firstPage.classList.remove(APPEAR_CLASSNAME);
     firstPage.classList.add(DISAPPEAR_CLASSNAME);
-    setTimeout(() => firstPage.hidden = true, 1000);
+    setTimeout(() => firstPage.style.display = "none", 1000);
 }
 
 function appear() {
+    secondPage.style.display = "grid";
     secondPage.classList.add(APPEAR_CLASSNAME);
     clockInsertToclockUserWeatherInfo();
 }
@@ -56,8 +57,8 @@ if (savedUsername === null) {
 
 const weatherInfo = document.querySelector("#weatherinfo");
 const weatherIcon = weatherInfo.querySelector("#weathericon");
-const weather = weatherInfo.querySelector("p:nth-child(2)");
-const city = weatherInfo.querySelector("p:last-child");
+const weather = weatherInfo.querySelector("p:nth-child(1)");
+const city = weatherInfo.querySelector("p:nth-child(2)");
 const API_KEY = "527bc277d5dc38c64055b1f238357ecf";
 
 function onGeoOk(position) {
