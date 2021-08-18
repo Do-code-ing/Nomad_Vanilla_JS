@@ -1,28 +1,13 @@
 'use strict';
 
-const images = [
-    "1.jpg",
-    "2.jpg",
-    "3.jpg",
-];
-
-const weatherInfo = document.querySelector("#weatherinfo");
-const weatherIcon = weatherInfo.querySelector("#weathericon");
-const weather = weatherInfo.querySelector("p:nth-child(2)");
-const city = weatherInfo.querySelector("p:last-child");
-const API_KEY = "527bc277d5dc38c64055b1f238357ecf";
-const chosenImage = images[Math.floor(Math.random() * images.length)];
-
-const bgImage = document.querySelector("#background-img");
-const firstPage = document.querySelector(".first-page");
-const secondPage = document.querySelector(".second-page");
+const firstPage = document.querySelector("#first-page");
+const secondPage = document.querySelector("#second-page");
 
 const clockUserWeatherInfo = document.querySelector("#info");
 const loginForm = document.querySelector("#login-form")
 const loginInput = document.querySelector("#login-form input");
 const greeting = document.querySelector("#greeting");
 
-const HIDDEN_CLASSNAME = "hidden";
 const APPEAR_CLASSNAME = "appear";
 const DISAPPEAR_CLASSNAME = "disappear";
 const USERNAME_KEY = "username";
@@ -35,7 +20,7 @@ function clockInsertToclockUserWeatherInfo() {
 function disappear() {
     firstPage.classList.remove(APPEAR_CLASSNAME);
     firstPage.classList.add(DISAPPEAR_CLASSNAME);
-    setTimeout(() => firstPage.classList.add(HIDDEN_CLASSNAME), 1000);
+    setTimeout(() => firstPage.hidden = true, 1000);
 }
 
 function appear() {
@@ -53,7 +38,6 @@ function onLoginSubmit(event) {
 
 function paintGreetings(username) {
     greeting.innerText = `Hello, ${username}`;
-    bgImage.src = `img/${chosenImage}`;
     setTimeout(appear, 0);
 }
 
@@ -63,12 +47,19 @@ if (savedUsername === null) {
     firstPage.classList.add(APPEAR_CLASSNAME);
     loginForm.addEventListener("submit", onLoginSubmit);
 } else {
-    firstPage.classList.add(HIDDEN_CLASSNAME);
+    firstPage.hidden = true;
     disappear();
     paintGreetings(savedUsername);
 }
 
 // weather
+
+const weatherInfo = document.querySelector("#weatherinfo");
+const weatherIcon = weatherInfo.querySelector("#weathericon");
+const weather = weatherInfo.querySelector("p:nth-child(2)");
+const city = weatherInfo.querySelector("p:last-child");
+const API_KEY = "527bc277d5dc38c64055b1f238357ecf";
+
 function onGeoOk(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
