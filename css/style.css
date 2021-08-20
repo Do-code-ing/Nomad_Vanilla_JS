@@ -34,6 +34,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-y: hidden;
     overflow-x: hidden;
     font-family: 'Jeju Gothic', sans-serif;
     color: white;
@@ -113,7 +114,6 @@ input {
 }
 
 #second-page {
-    height: 100%;
     display: none;
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 2fr;
@@ -164,7 +164,7 @@ input {
     #todo-list {
         overflow-x: hidden;
         overflow-y: auto;
-        max-height: 20em;
+        max-height: 23em;
         font-size: 2em;
         text-align: center;
     }
@@ -228,15 +228,7 @@ footer {
     }
 }
 @media screen and (max-width: 650px) {
-    #second-page {
-        grid-template-columns: 1fr;
-    }
     #info {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    #todo-block {
-        grid-column: 1;
-        grid-row: 2 / 3;
+        display: none;
     }
 }
