@@ -13,33 +13,34 @@ const DISAPPEAR_CLASSNAME = "disappear";
 const USERNAME_KEY = "username";
 
 function clockInsertToclockUserWeatherInfo() {
-    clock.remove();
     clockUserWeatherInfo.insertBefore(clock, weatherInfo);
 }
 
-function disappear() {
+function firstPageDisappear() {
     firstPage.classList.remove(APPEAR_CLASSNAME);
     firstPage.classList.add(DISAPPEAR_CLASSNAME);
     setTimeout(() => firstPage.style.display = "none", 1000);
 }
 
-function appear() {
+function secondPageAppear() {
     secondPage.style.display = "grid";
+    secondPage.classList.remove(DISAPPEAR_CLASSNAME);
     secondPage.classList.add(APPEAR_CLASSNAME);
+    loginInput.value = "";
     clockInsertToclockUserWeatherInfo();
 }
 
 function onLoginSubmit(event) {
     event.preventDefault();
     const username = loginInput.value;
-    setTimeout(disappear, 0);
+    setTimeout(firstPageDisappear, 0);
     localStorage.setItem(USERNAME_KEY, username);
     setTimeout(paintGreetings, 1000, username);
 }
 
 function paintGreetings(username) {
     greeting.innerText = `Hello, ${username}`;
-    setTimeout(appear, 0);
+    setTimeout(secondPageAppear, 0);
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
@@ -49,7 +50,7 @@ if (savedUsername === null) {
     loginForm.addEventListener("submit", onLoginSubmit);
 } else {
     firstPage.hidden = true;
-    disappear();
+    firstPageDisappear();
     paintGreetings(savedUsername);
 }
 
@@ -83,3 +84,30 @@ function onGeoError() {
 }
 
 setInterval(navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError), 60000);
+
+// Change name
+
+const changeNameForm = document.getElementById("change-name");
+const enterForm = document.getElementById("enter-form");
+
+function secondPageDisappear() {
+    secondPage.classList.remove(APPEAR_CLASSNAME);
+    secondPage.classList.add(DISAPPEAR_CLASSNAME);
+    setTimeout(() => secondPage.style.display = "none", 1000);
+}
+
+function firstPageappear() {
+    firstPage.style.display = "block";
+    firstPage.classList.remove(DISAPPEAR_CLASSNAME);
+    firstPage.classList.add(APPEAR_CLASSNAME);
+    enterForm.insertBefore(clock, loginForm);
+}
+
+function handleChangeName(event) {
+    event.preventDefault();
+    localStorage.removeItem(USERNAME_KEY);
+    secondPageDisappear();
+    setTimeout(firstPageappear, 1000);
+}
+
+changeNameForm.addEventListener("submit", handleChangeName)

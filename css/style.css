@@ -50,6 +50,11 @@ h2 {
     font-size: 3em;
 }
 
+label {
+    margin: 0;
+    font-size: 5em;
+}
+
 #greeting {
     margin: 0;
 }
@@ -96,6 +101,10 @@ input {
         input[type="submit"]:active {
             background-color: rgba(255, 255, 255, 0.1);
         }
+    
+    input#change-name-button {
+        font-size: 1.3em;
+    }
 
 #first-page {
     text-align: center;

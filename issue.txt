@@ -18,3 +18,7 @@ Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'
 2021-08-20
 모바일 환경에서 확대 및 축소, 좌우 스크롤 방지 기능 필요성을 느낌
 2021-08-20: HTML 수정으로 이슈 해결 완료
+
+# 2021-08-20
+이름 변경 기능의 필요성을 느낌
+2021-08-20: 기능 추가 완료
