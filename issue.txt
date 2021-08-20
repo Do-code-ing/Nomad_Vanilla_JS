@@ -11,6 +11,10 @@
 Error with Permissions-Policy header: Unrecognized feature: 'interest-cohort'
 구글링 해봤으나 무시하기로 했음
 
-# 2021-08-20
+2021-08-20
 모바일 환경에서 웹 페이지에 접속 시 하단의 quote가 todo-list 입력창을 가리는 시각적 불편함 발생
 2021-08-20: CSS 수정으로 이슈 해결 완료
+
+# 2021-08-20
+모바일 환경에서 확대 및 축소, 좌우 스크롤 방지 기능 필요성을 느낌
+2021-08-20: HTML 수정으로 이슈 해결 완료
