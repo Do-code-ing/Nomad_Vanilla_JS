@@ -108,6 +108,7 @@ function handleChangeName(event) {
     localStorage.removeItem(USERNAME_KEY);
     secondPageDisappear();
     setTimeout(firstPageappear, 1000);
+    loginForm.addEventListener("submit", onLoginSubmit);
 }
 
 changeNameForm.addEventListener("submit", handleChangeName)
