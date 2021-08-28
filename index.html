@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/earlyaccess/jejugothic.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/earlyaccess/jejugothic.css"
+      rel="stylesheet"
+    />
     <title>Momentum App</title>
     <script defer src="js/background.js"></script>
     <script defer src="js/greeting.js"></script>
     <script defer src="js/clock.js"></script>
     <script defer src="js/quotes.js"></script>
     <script defer src="js/todo.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <main id="first-page">
-        <article id="enter-form">
-            <h2 id="clock"></h2>
-            <form id="login-form">
-                <input id="login-text" type="text" placeholder="What is your name?" required maxlength="15">
-                <input type="submit" value="Log In">
-            </form>
-        </article>
+      <article id="enter-form">
+        <h2 id="clock"></h2>
+        <form id="login-form">
+          <input
+            id="login-text"
+            type="text"
+            placeholder="What is your name?"
+            required
+            maxlength="15"
+          />
+          <input type="submit" value="Log In" />
+        </form>
+      </article>
     </main>
     <main id="second-page">
-        <article id="info">
-            <article id="weatherinfo">
-                <p id="weather"></p>
-                <p id="city"></p>
-                <img id="weathericon" src="img/loading.gif">
-            </article>
-            <h2 id="greeting"></h2>
-            <form id="change-name">
-                <input id="change-name-button" type="submit" value="Change name">
-            </form>
+      <article id="info">
+        <article id="weatherinfo">
+          <p id="weather"></p>
+          <p id="city"></p>
+          <img id="weathericon" src="img/loading.gif" />
         </article>
-        <article id="todo-block">
-            <form id="todo-form">
-                <label>To-Do List</label>
-                <input id="todo-text" type="text" placeholder="Write a To Do and Press Enter" required>
-            </form>
-            <div id="todo-list"></div>
-        </article>
+        <h2 id="greeting"></h2>
+        <form id="change-name">
+          <input id="change-name-button" type="submit" value="Change name" />
+        </form>
+      </article>
+      <article id="todo-block">
+        <form id="todo-form">
+          <label>To-Do List</label>
+          <input
+            id="todo-text"
+            type="text"
+            placeholder="Write a To Do and Press Enter"
+            required
+          />
+        </form>
+        <div id="todo-list"></div>
+      </article>
     </main>
     <footer>
-        <article id="quote">
-            <span></span>
-            <span></span>
-        </article>
+      <article id="quote">
+        <span></span>
+        <span></span>
+      </article>
     </footer>
-</body>
+  </body>
 </html>
